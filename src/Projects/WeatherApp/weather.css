@@ -1,0 +1,8 @@
+.weather-container{
+max-width: 1080px;
+margin: auto;
+font-family: "Roboto",Arial;
+background-color: #d5d4d4;
+min-height: 600px;
+padding: 10px;
+}

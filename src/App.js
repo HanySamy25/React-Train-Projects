@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import NavScrollExample from "./Components/Navbar";
+import "./App.css";
+import WeatherApp from "./Projects/WeatherApp/Weather";
+import CalculatorApp  from "./Projects/Calculator/Calculator";
+import DaveApps from "./Projects/DaveApps/Apps";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+      <NavScrollExample/>
+    <div className="container">
+    <Routes>
+        <Route path="/" element={<div className="main-wrabber">Click On Your App To Display</div>} />
+        <Route path="/weather-app" element={<WeatherApp />} />
+        <Route path="/calculator" element={<CalculatorApp />} />
+        <Route path="/dave-apps/*" element={<DaveApps />} />
+       
+
+      </Routes>  
+     
     </div>
+
+    
+    </>
   );
 }
 

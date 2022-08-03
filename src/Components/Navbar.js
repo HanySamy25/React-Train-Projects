@@ -27,17 +27,6 @@ function NavScrollExample() {
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/dave-apps/">!!!!</NavDropdown.Item>
             </NavDropdown>
-
-
-            <NavDropdown title="DApp" id="navbarScrollingDropdown0">
-              <NavDropdown.Item as={Link} to="/dapp/nest1">Nest1</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/dapp/nest2">Nest2</NavDropdown.Item>
-              
-            </NavDropdown>
-
-
-
-            
           </Nav>
           <Form className="d-flex">
             <Form.Control

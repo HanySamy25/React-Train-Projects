@@ -71,3 +71,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+
+### for Weather Projects & Users Posts
+
+you need active internet connection
+
+### for groceries project
+
+run this command `npx json-server -p 3500 -w data/db.json ` to get data from local server

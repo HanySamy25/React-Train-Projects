@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, useNavigate, Outlet } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { format} from 'date-fns';
 
 import "./Blog.css";
@@ -8,11 +8,13 @@ import Footer from "./Footer";
 import Nav from "./Nav";
 import Home from "./Home";
 import NewPost from "./NewPost";
+import EditPost from "./EditPost";
 import PostPage from "./PostPage";
 import About from "./About";
 import Missing from "./Missing";
 import Api from './Api/Posts';
-import EditPost from "./EditPost";
+import useWindowSize from "./hooks/useWindowSize";
+import useAxiosFetch from "./hooks/useAxiosFetch";
 
 const BlogApp = () => {
 
@@ -24,26 +26,37 @@ const BlogApp = () => {
   const [editPostTitle,setEditPostTitle]=useState('');
   const [editPostBody,setEditPostBody]=useState('');
   const navigate=useNavigate();
-useEffect(()=>{
-  const fetchPosts=async()=>{
-    try {
-      const response=await Api.get('/posts');
-      setPosts(response.data);
-    } catch (error) {
-      if (error.response) {
+  const {width}=useWindowSize();
+ 
+  const {data,fetchError,isLoading}=useAxiosFetch('http://localhost:3600/posts')
+
+  useEffect(()=>{
+setPosts(data);
+  },[data]);
+
+// useEffect(()=>{
+//   const fetchPosts=async()=>{
+//     try {
+//       const response=await Api.get('/posts');
+//       setPosts(response.data);
+//     } catch (error) {
+//       if (error.response) {
         
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
-      }else{
-        console.log(`Error: ${error.message}`);
+//         console.log(error.response.data);
+//         console.log(error.response.status);
+//         console.log(error.response.headers);
+//       }else{
+//         console.log(`Error: ${error.message}`);
 
-      }
-      }
-  }
+//       }
+//       }
+//   }
 
-  fetchPosts();
-},[])
+//   fetchPosts();
+// },[]);
+
+
+
   useEffect(()=>{
     const filteredResults = posts.filter(post =>
       ((post.title).toLowerCase()).includes(search.toLowerCase())
@@ -96,7 +109,7 @@ try {
   const handelDelete= async(id)=>{
     try {
       await Api.delete(`/posts/${id}`);
-      const postsList =posts.filter(post=>post.id!=id);
+      const postsList =posts.filter(post=>post.id!==id);
       setPosts(postsList);
       navigate('/dave-apps/blog');
     } catch (error) {
@@ -109,10 +122,14 @@ try {
 
   return (
     <div className="blog">
-      <Header title="React JS Blog"/>
+      <Header title="React JS Blog" width={width}/>
       <Nav search={search} setSearch={setSearch} />
         <Routes>
-        <Route path="/" element={<Home posts={searchResults} />}/>
+        <Route path="/" element={<Home 
+                    posts={searchResults}
+                    fetchError={fetchError}
+                    isLoading={isLoading}
+                    />}/>
     
         <Route path="post" element={
                        <NewPost 

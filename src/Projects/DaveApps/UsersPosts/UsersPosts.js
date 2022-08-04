@@ -35,14 +35,14 @@ const UsersPosts = () => {
     fetchData();
   }, [reqType]);
 
-  const handelClick = async (type) => {
-    // console.log(type);
-    // setReqType(type);
-    // const response =await fetch(`${API_URL}/${type}`);
-    // const result= await response.json();
-    // setData(result);
-    // console.log(result);
-  };
+  // const handelClick = async (type) => {
+  //   console.log(type);
+  //   setReqType(type);
+  //   const response =await fetch(`${API_URL}/${type}`);
+  //   const result= await response.json();
+  //   setData(result);
+  //   console.log(result);
+  // };
 
   const toggleView = (type) => {
     setView(type);

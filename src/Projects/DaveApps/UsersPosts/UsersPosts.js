@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Buttons from "./Buttons";
 import Table from "./Table";
+import styleCss from '../Groceries/Groceries.module.css';
 
 const UsersPosts = () => {
   const style = {
@@ -49,7 +50,7 @@ const UsersPosts = () => {
 
   return (
     <form style={style} onSubmit={(e) => e.preventDefault()}>
-      <div className="view">
+      <div className={styleCss.view}>
        <label htmlFor="viewList">
         <input type="radio" name="view" id="viewList" defaultChecked onChange={() => toggleView("list")} /> List</label>
         <label htmlFor="viewTable"><input type="radio" name="view" id="viewTable" onChange={() => toggleView("table")} /> Table</label>
@@ -58,7 +59,7 @@ const UsersPosts = () => {
       <Buttons btnText="users" reqType={reqType} setReqType={setReqType} />
       <Buttons btnText="posts" reqType={reqType} setReqType={setReqType} />
       <Buttons btnText="comments" reqType={reqType} setReqType={setReqType} />
-      {foundError && <p className="errMsg"> {`Error: ${foundError}`}</p>}
+      {foundError && <p className={styleCss.errMsg}> {`Error: ${foundError}`}</p>}
       {!foundError && data && (
         <>
           {view==="list" && <ul>

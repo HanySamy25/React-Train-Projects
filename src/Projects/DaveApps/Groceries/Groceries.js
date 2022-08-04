@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Groceries.css';
+import style from './Groceries.module.css';
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
@@ -128,7 +128,7 @@ if (result) setFetchError(result);
 
 
   return (
-   <div className='dave-app'>
+   <div className={style.dave_app}>
    <Header 
         title="Groceires List" 
         bgcolor={bgcolor}
@@ -146,7 +146,7 @@ if (result) setFetchError(result);
       search={search}
       setSearch={setSearch}
    />
-<main>
+<main className={style.main}>
     {isLoading&& <p>Loading Items...</p>}
     {fetchError && <p style={{ color:"red" }}> {`Error ${fetchError}`}</p>}
    

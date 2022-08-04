@@ -1,10 +1,11 @@
 import React from 'react';
 import { FaTrashAlt } from "react-icons/fa";
+import style from './Groceries.module.css';
 
 
 const LineItem = ({ item, handelCheck, handelDelete }) => {
   return (
-    <li className="item">
+    <li className={style.item}>
     <input
       type="checkbox"
       checked={item.checked}

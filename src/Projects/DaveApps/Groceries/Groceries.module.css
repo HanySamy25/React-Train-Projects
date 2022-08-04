@@ -1,5 +1,5 @@
 
-.dave-app {
+.dave_app {
     min-height: 100vh;
     font-family: 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -19,7 +19,7 @@
     margin: auto;
   }
   
-  header {
+  .header {
     width: 100%;
     padding: 0 0.25em;
     background-color: mediumblue;
@@ -35,7 +35,7 @@
   padding: 5px;
   }
 
-  main {
+  .main {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@
     overflow-y: auto;
   }
   
-  footer {
+  .footer {
     width: 100%;
     padding: 0.25em;
     background-color: mediumblue;
@@ -54,13 +54,13 @@
     place-content: center;
   }
 
-  ul {
+  .ul {
     width: 100%;
     list-style: none;
     padding: 0 0.25rem 0.25rem;
   }
 
-  ul li::before {
+  .ul li::before {
     content: "\200B";
   }
 
@@ -194,17 +194,17 @@ button.selected {
   color: #fff !important;
 }
 
-ul {
+/* ul {
   padding: 3rem 2rem 1rem;
 }
 
 li {
   margin-bottom: 1rem;
-}
+} */
 
 
 
-.table-container {
+.table_container {
   width: 100%;
   overflow-y: auto;
   padding-top: 52px;

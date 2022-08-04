@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -25,7 +26,7 @@ function NavScrollExample() {
               <NavDropdown.Item as={Link} to="/dave-apps/groceries">Groceries</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="dave-apps/users-posts">Users Posts </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to="/dave-apps/">!!!!</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/dave-apps/blog">Blog</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form className="d-flex">

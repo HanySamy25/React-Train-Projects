@@ -1,9 +1,10 @@
 import React from 'react'
+import style from './Groceries.module.css';
 
 const SearchItem = ({search,setSearch}) => {
   return (
 
-    <form className='searchForm'  onSubmit={(e)=>e.preventDefault()}>
+    <form className={style.searchForm}  onSubmit={(e)=>e.preventDefault()}>
         <label htmlFor="search">Search</label>
         <input 
         type="text" 

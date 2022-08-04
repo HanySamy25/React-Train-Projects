@@ -1,12 +1,14 @@
-import {useRef} from 'react';
+import React,{useRef} from 'react';
 
 import { FaPlus } from 'react-icons/fa';
+import style from './Groceries.module.css';
 
 
 const AddItem = ({newItem,setNewItem,handelSubmit}) => {
 const inputRef=useRef();
   return (
-    <form action="" className='addForm' onSubmit={handelSubmit}>
+    <>
+    <form action="" className={style.addForm} onSubmit={handelSubmit}>
         <label htmlFor="addItem">Add Item</label>
         <input 
         type="text"
@@ -26,6 +28,7 @@ const inputRef=useRef();
             <FaPlus/>
         </button>
     </form>
+    </>
   )
 }
 

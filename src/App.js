@@ -5,6 +5,7 @@ import "./App.css";
 import WeatherApp from "./Projects/WeatherApp/Weather";
 import CalculatorApp  from "./Projects/Calculator/Calculator";
 import DaveApps from "./Projects/DaveApps/Apps";
+import NotFound from "./NotFound";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/weather-app" element={<WeatherApp />} />
         <Route path="/calculator" element={<CalculatorApp />} />
         <Route path="/dave-apps/*" element={<DaveApps />} />
+        <Route path="*" element={<NotFound />} />
        
 
       </Routes>  

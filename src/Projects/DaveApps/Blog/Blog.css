@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.blog {
+  margin: auto;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #efefef;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 800px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #333;
+  box-shadow: 0px 0px 15px gray;
+}
+
+.Blog-Header, .Blog-Footer {
+  width: 100%;
+  background-color: #66d8f5;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Blog-Header h1 {
+  font-size: 1.5rem;
+}
+
+.Blog-Header svg {
+  font-size: 2rem;
+}
+
+.Blog-Footer {
+  padding: 0.75rem;
+  display: grid;
+  place-content: center;
+}
+
+.Blog-Nav {
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.Blog-searchForm {
+  width: 100%;
+  padding: 1rem 0 0 0.75rem;
+ }
+
+.Blog-searchForm input[type="text"] {
+  font-family: 'Open Sans', sans-serif;
+  width: 95%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+.Blog-searchForm label {
+  position: absolute;
+  left: -99999px;
+}
+
+.Blog-Nav .Blog-ul {
+  color: #fff;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.Blog-Nav li {
+  padding: 1rem;
+}
+
+.Blog-Nav li:hover, 
+.Blog-Nav li:focus {
+  padding: 1rem;
+}
+
+.Blog-Nav li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.Blog-Nav li:hover, 
+.Blog-Nav li:focus, 
+.Blog-Nav li:hover a, 
+.Blog-Nav li:focus a  {
+  background-color: #eee;
+  color: #333;
+}
+
+.Blog-Nav li:hover a, 
+.Blog-Nav li:focus a {
+  cursor: pointer;
+}
+
+.Blog-Home, .Blog-NewPost, .Blog-PostPage, .Blog-About,.Blog-Missing {
+  width: 100%;
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.Blog-post {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.Blog-Home .Blog-post a {
+  text-decoration: none;
+}
+
+.Blog-Home .Blog-post a, 
+.Blog-Home .Blog-post a:visited {
+  color: #000;
+}
+
+.Blog-post:first-child {
+  margin-top: 0;
+}
+
+.Blog-post:last-child {
+  border-bottom: none;
+}
+
+.Blog-postDate {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.Blog-postBody {
+  margin: 1rem 0;
+}
+
+.Blog-newPostForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.Blog-newPostForm label {
+  margin-top: 1rem;
+}
+
+.Blog-newPostForm input[type='text'], 
+.Blog-newPostForm textarea {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+  outline: none;
+}
+
+.Blog-newPostForm textarea {
+  height: 100px;
+}
+
+.Blog-newPostForm button {
+  margin-top: 1rem;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+
+.Blog-Missing h2, .PostPage h2, 
+.Blog-Missing p, .PostPage p {
+  margin-bottom: 1rem;
+}
+
+.Blog-PostPage button {
+  height: 48px;
+  min-width: 48px;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.Blog-deleteButton{
+  background-color: red;
+}
+
+
+.Blog-editButton{
+  background-color: #333;
+}
+
+.Blog-statusMsg {
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width: 610px) {
+    .blog {
+    font-size: 22px;
+  }
+
+  .Blog-Header h1 {
+    font-size: 2rem;
+  }
+
+  .Blog-av {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Blog-Nav .Blog-ul {
+    text-align: right;
+  }
+
+  .Blog-Nav li:hover, 
+  .Blog-Nav li:focus, 
+  .Blog-Nav li:hover a, 
+  .Blog-Nav li:focus a  {
+    background-color: #eee;
+    color: #333;
+  }
+
+  .Blog-searchForm {
+    /* width: 50%;
+    padding: .5rem 0; */
+  }
+ 
+  .Blog-searchForm input[type="text"] {
+    margin-left: 0.5rem;
+  }
+
+  .Blog-newPostForm textarea {
+    height: 300px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+
+    .Blog-Header svg {
+    font-size: 3rem;
+  }
+
+}

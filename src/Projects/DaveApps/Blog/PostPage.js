@@ -1,12 +1,33 @@
-import React from 'react'
-import {useParams,Link} from "react-router-dom";
+import React, {useContext}from 'react'
+import {useParams,Link,useNavigate} from "react-router-dom";
+import Api from './Api/Posts';
+import DataContext from './Context/DataContext';
+
+const PostPage = () => {
 
 
-const PostPage = ({posts,handelDelete}) => {
-
-
+  const {posts,setPosts}=useContext(DataContext);
+  const navigate=useNavigate();
   const {id}=useParams();
 const post=posts.find(post=>(post.id).toString()===id);
+
+
+
+
+const handelDelete= async(id)=>{
+if (!window.confirm('Are You Sure ?')) return;
+
+
+  try {
+    await Api.delete(`/posts/${id}`);
+    const postsList =posts.filter(post=>post.id!==id);
+    setPosts(postsList);
+    navigate('/dave-apps/blog');
+  } catch (error) {
+  console.log(`Error: ${error.message}`);  
+  }
+  
+} 
 
   return (
     <main className='Blog-PostPage'>

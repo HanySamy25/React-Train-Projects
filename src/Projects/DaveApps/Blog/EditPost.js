@@ -1,13 +1,17 @@
-import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-const EditPost = ({
-  posts,
-  handelEdit,
-  editPostTitle,
-  setEditPostTitle,
-  editPostBody,
-  setEditPostBody,
-}) => {
+import React, {useState, useEffect,useContext } from "react";
+import { useParams, Link ,useNavigate} from "react-router-dom";
+import { format} from 'date-fns';
+import Api from './Api/Posts';
+import DataContext from './Context/DataContext';
+
+const EditPost = () => {
+
+
+  const [editPostTitle,setEditPostTitle]=useState('');
+  const [editPostBody,setEditPostBody]=useState('');
+  const {posts,setPosts}=useContext(DataContext);
+  const navigate=useNavigate();
+
   const { id } = useParams();
   const post = posts.find((post) => post.id.toString() === id);
   
@@ -17,6 +21,26 @@ const EditPost = ({
       setEditPostBody(post.body);
     }
   }, [post, setEditPostTitle, setEditPostBody]);
+
+
+
+  const handelEdit=async(id)=>{
+    const datetime = format(new Date(),'MMMM dd, yyyy pp');
+    const updatePost = {id,title:editPostBody,datetime, body:editPostBody}
+    try {
+      const response = await Api.put(`/posts/${id}`,updatePost);
+      setPosts(posts.map(post=>post.id===id?{...response.data}:post));
+      setEditPostTitle('')
+      setEditPostBody('');
+      navigate('/dave-apps/blog');
+    } catch (error) {
+      console.log(`Error ${error.message}`);
+    }
+    
+    
+    }
+
+
   return (
     <main className="Blog-NewPost">
       {editPostTitle && (

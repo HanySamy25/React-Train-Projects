@@ -1,6 +1,44 @@
-import React from 'react'
+import React ,{useState ,useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
+import { format} from 'date-fns';
+import Api from './Api/Posts';
+import DataContext from './Context/DataContext';
 
-const NewPost = ({handelSubmit,postTitle,setPostTitle,postBody,setPostBody}) => {
+
+
+
+
+
+const NewPost = () => {
+  
+
+  const [postTitle,setPostTitle]=useState('');
+  const [postBody,setPostBody]=useState('');
+  const {posts,setPosts}=useContext(DataContext);
+  const navigate=useNavigate();
+  
+  
+  
+  
+  const handelSubmit= async(e)=>{
+    e.preventDefault();
+    const id = posts.length?posts[posts.length-1].id+1:1;
+    const datetime=format(new Date(),'MMMM dd, yyyy pp');
+    const newPost ={id,title:postTitle,datetime,body:postBody};
+    try {
+      const response = await Api.post('/posts',newPost);
+      const allPosts =[...posts,response.data];
+      setPosts(allPosts);
+      setPostTitle('');
+      setPostBody('');
+      navigate('/dave-apps/blog');
+        
+    } catch (error) {
+      console.log(`Error ${error.message}`);
+    }
+  }
+
+
   return (
     <main className='Blog-NewPost'>
       <h2>New Post</h2>

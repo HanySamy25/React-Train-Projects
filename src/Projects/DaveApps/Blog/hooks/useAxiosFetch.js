@@ -37,7 +37,7 @@ const useAxiosFetch = (dataUrl)=>{
 fecthData(dataUrl);
 
 const cleanUp=()=>{
-    console.log('clean ip function');
+    // console.log('clean ip function');
     isMounted=false;
     source.cancel();
 }
